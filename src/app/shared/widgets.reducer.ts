@@ -36,26 +36,20 @@ export const widgets: ActionReducer<Widget[]> = (state: Widget[] = initialState,
       return state;
 
     case CREATE_WIDGET:
-      state.push(action.payload);
-      return state;
+      Object.freeze(state);
+      return [...state, action.payload];
 
     case UPDATE_WIDGET:
-      state.forEach((widget, index) => {
-        if (widget[comparator] === action.payload[comparator]) {
-          state.splice(index, 1, action.payload);
-        }
-      });
-
-      return state;
+      Object.freeze(state);
+      return state.map(widget =>
+        (widget[comparator] === action.payload[comparator]) ? Object.assign({}, widget, action.payload) : widget
+      );
 
     case DELETE_WIDGET:
-      state.forEach((widget, index) => {
-        if (widget[comparator] === action.payload[comparator]) {
-          state.splice(index, 1);
-        }
-      });
-
-      return state;
+      Object.freeze(state);
+      return state.filter(widget => {
+          return widget[comparator] !== action.payload[comparator];
+        });
 
     default:
       return state;

@@ -6,5 +6,5 @@ export { User } from './user.model';
 export * from './users.reducer';
 export { WidgetsService } from './widgets.service';
 export { Widget } from './widget.model';
-export { HomeService } from './home.service';
-
+export { HomeService } from './home.service'
+export * from './widgets.reducer';

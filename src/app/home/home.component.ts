@@ -22,5 +22,6 @@ export class HomeComponent {
       .subscribe(widgets => this.widgets = widgets);
 
     this.itemsService.loadItems();
+    this.widgetsService.loadWidgets();
   }
 }

@@ -9,7 +9,7 @@ export const DELETE_ITEM = 'DELETE_ITEM';
 
 const comparator = 'id';
 
-export const items: ActionReducer<Item[]> = (state: Item[] = [], action: Action) => {
+const itemReducer: ActionReducer<Item[]> = (state: Item[] = [], action: Action) => {
   switch (action.type) {
     case ADD_ITEMS:
       return action.payload;
@@ -30,4 +30,8 @@ export const items: ActionReducer<Item[]> = (state: Item[] = [], action: Action)
     default:
       return state;
   }
+};
+
+export function items(state: any, action: any) {
+  return itemReducer(state, action);
 };

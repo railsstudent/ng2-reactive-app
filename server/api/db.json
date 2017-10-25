@@ -34,6 +34,11 @@
       "id": 3,
       "name": "Sally Sue",
       "bio": "Her first and last name both start with S haha!"
+    },
+    {
+      "name": "Tintin",
+      "bio": "Character is adventure norvel",
+      "id": 4
     }
   ]
 }

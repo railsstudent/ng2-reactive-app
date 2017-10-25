@@ -29,7 +29,7 @@ export class WidgetsService {
 
   createWidget(widget: Widget) {
     // temporary – will be handled by the server
-    widget.id = +UUID.UUID();
+    widget.id = UUID.UUID();
 
     return this.store.dispatch({ type: CREATE_WIDGET, payload: widget });
   }

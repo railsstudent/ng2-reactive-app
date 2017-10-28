@@ -30,7 +30,7 @@ const initialState = [
 
 const comparator = 'id';
 
-export const widgets: ActionReducer<Widget[]> = (state: Widget[] = initialState, action: Action) => {
+const widgetsReducer: ActionReducer<Widget[]> = (state: Widget[] = initialState, action: Action) => {
   switch (action.type) {
     case ADD_WIDGETS:
       return initialState;
@@ -52,3 +52,7 @@ export const widgets: ActionReducer<Widget[]> = (state: Widget[] = initialState,
       return state;
   }
 };
+
+export function widgets(state: any, action: Action) {
+  return widgetsReducer(state, action);
+}

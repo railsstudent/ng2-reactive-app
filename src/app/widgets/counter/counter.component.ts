@@ -15,11 +15,24 @@ export class CounterComponent implements OnInit {
   @ViewChild('increment') increment;
   @ViewChild('decrement') decrement;
 
-  coolness: number = 5;
+  coolness: number;
 
   constructor(private cd: ChangeDetectorRef) {}
 
   ngOnInit() {
+    const increment$ = Observable.fromEvent(this.getNativeElement(this.increment), 'click')
+      .map(event => 1);
+
+    const decrement$ = Observable.fromEvent(this.getNativeElement(this.decrement), 'click')
+        .map(event => -1);
+
+    Observable.merge(increment$, decrement$)
+      .startWith(5)
+      .scan((acc, curr) => (acc + curr) >= 0 ? acc + curr : acc)
+      .subscribe(coolness => {
+        this.coolness = coolness;
+        this.cd.detectChanges();
+      })
   }
 
   getNativeElement(element) {

@@ -3,7 +3,7 @@
     <app-slider></app-slider>
   </div>
   <div class="mdl-cell mdl-cell--6-col">
-    <app-widgets-list [widgets]="widgets"
+    <app-widgets-list [widgets]="widgets$ | async"
                     (selected)="selectWidget($event)"
                     (deleted)="deleteWidget($event)">
     </app-widgets-list>

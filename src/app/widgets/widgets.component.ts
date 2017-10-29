@@ -6,11 +6,10 @@ import { WidgetsService, Widget } from '../shared';
   selector: 'app-widgets',
   templateUrl: './widgets.component.html',
   styleUrls: ['./widgets.component.css'],
-  // changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class WidgetsComponent implements OnInit {
   widgets$: Observable<Widget[]>;
-  widgets: Widget[];
   selectedWidget: Widget;
 
   constructor(
@@ -18,7 +17,7 @@ export class WidgetsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.widgetsService.widgets$.subscribe(widgets => this.widgets = widgets);
+    this.widgets$ = this.widgetsService.widgets$;
     this.widgetsService.loadWidgets();
   }
 
@@ -47,4 +46,3 @@ export class WidgetsComponent implements OnInit {
     this.resetWidget();
   }
 }
-

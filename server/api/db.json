@@ -34,6 +34,58 @@
       "id": 3,
       "name": "Sally Sue",
       "bio": "Her first and last name both start with S haha!"
+    },
+    {
+      "name": "Bozo the Clown",
+      "bio": "The clown",
+      "id": 5
+    }
+  ],
+  "widgets": [
+    {
+      "id": 1,
+      "name": "Widget 1",
+      "description": "This is a description",
+      "user": 1
+    },
+    {
+      "id": 2,
+      "name": "Widget 2",
+      "description": "This is a description",
+      "user": 3
+    },
+    {
+      "id": 3,
+      "name": "Widget 3",
+      "description": "This is a lovely widget edited again!",
+      "user": 2
+    },
+    {
+      "id": 4,
+      "name": "Widget Modify",
+      "description": "New Widget Description Modify",
+      "user": "1"
+    },
+    {
+      "name": "Widget 2 Modify",
+      "description": "Hello World",
+      "user": "3",
+      "id": 5
+    },
+    {
+      "id": 6,
+      "name": "",
+      "description": ""
+    },
+    {
+      "id": 7,
+      "name": "",
+      "description": ""
+    },
+    {
+      "id": 8,
+      "name": "",
+      "description": ""
     }
   ]
 }

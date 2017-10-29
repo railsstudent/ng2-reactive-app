@@ -8,4 +8,4 @@ export { WidgetsService } from './widgets.service';
 export { Widget } from './widget.model';
 export * from './widgets.reducer';
 export { HomeService } from './home.service';
-
+export { UserData } from './home.model';

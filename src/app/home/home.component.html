@@ -1,8 +1,17 @@
-<div class="mdl-grid items home">
-  <div class="mdl-cell mdl-cell--6-col">
-    <app-items-list [items]="items$ | async"></app-items-list>
-  </div>
-  <div class="mdl-cell mdl-cell--6-col">
-    <app-widgets-list [widgets]="widgets$ | async"></app-widgets-list>
-  </div>
+<div class="mdl-card mdl-cell mdl-cell--12-col" *ngFor="let data of data$ | async">
+ <div class="mdl-card__supporting-text">
+   <h4>{{data.name}}</h4>
+ </div>
+ <h4>Items</h4>
+ <div class="mdl-card__actions" *ngFor="let item of data.items">
+   <p>{{item.name}}</p>
+   <p>{{item.description}}</p>
+   <hr />
+ </div>
+ <h4>Widgets</h4>
+ <div class="mdl-card__actions" *ngFor="let widget of data.widgets">
+   <p>Name: {{widget.name}}</p>
+   <p>Description: {{widget.description}}</p>
+   <hr />
+ </div>
 </div>

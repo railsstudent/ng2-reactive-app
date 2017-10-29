@@ -32,12 +32,37 @@ export class SliderComponent {
     });
 
     // Create a stream of form value changes //
+    const valueStream = this.myForm.valueChanges
+          .map(values => ({
+            min: parseFloat(values.min),
+            max: parseFloat(values.max)
+          }))
+          .pairwise()
+          .filter(([oldVal, newVal]) => {
+              let isValid = true;
+              if (oldVal.min !== newVal.min && newVal.min > newVal.max) {
+                isValid = false;
+                (<FormControl>this.myForm.controls['max']).setValue(newVal.min);
+              }
+              else if (oldVal.max !== newVal.max && newVal.max < newVal.min) {
+                isValid = false;
+                (<FormControl>this.myForm.controls['min']).setValue(newVal.max);
+              }
+              return isValid;
+          })
+          .map(([oldVal, newVal]) => newVal);
 
     // ===================================== //
 
     // Create two sub-streams that pull the //
     // appropriate values from the form //
+    this.minValue = valueStream
+      .map(values => values.min)
+      .startWith(45);
 
     // ==================================== //
+    this.maxValue = valueStream
+      .map(values => values.max)
+      .startWith(55);
   }
 }

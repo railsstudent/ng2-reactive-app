@@ -5,9 +5,9 @@
   <div class="mdl-card__supporting-text">
     <form [formGroup]="myForm">
       <input formControlName="min" type="range" [min]="min" [max]="max" [step]="step">
-      <p>min - {{myForm.get('min').value}}</p>
+      <p>min - {{ minValue | async }}</p>
       <input formControlName="max" type="range" [min]="min" [max]="max" [step]="step">
-      <p>max - {{myForm.get('max').value}}</p>
+      <p>max - {{ maxValue | async }}</p>
     </form>
   </div>
 </div>
